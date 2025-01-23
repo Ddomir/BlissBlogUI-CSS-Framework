@@ -1,0 +1,19 @@
+{
+  "name": "my-devblog-framework",
+  "version": "1.0.0",
+  "description": "A simple SCSS-based CSS framework for devblogs",
+  "main": "dist/styles.css",
+  "scripts": {
+    "build": "sass scss/main.scss dist/styles.css --no-source-map && postcss dist/styles.css --use autoprefixer -o dist/styles.css && cssnano dist/styles.css dist/styles.css",
+    "watch": "sass scss/main.scss dist/styles.css --watch",
+    "clean": "rm -rf dist/*"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "cssnano": "^7.0.6",
+    "postcss": "^8.5.1",
+    "postcss-cli": "^11.0.0",
+    "sass": "^1.83.4"
+  }
+}

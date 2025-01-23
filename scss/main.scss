@@ -1,0 +1,17 @@
+// main.scss
+@import "variables";
+@import "base";
+@import "mixins";
+@import "utilities";
+
+// components
+@import "components/buttons";
+@import "components/navbar";
+@import "components/posts-grid";
+@import "components/post";
+@import "components/code-block";
+@import "components/note";
+@import "components/highlight";
+
+// typography
+@import "typography";

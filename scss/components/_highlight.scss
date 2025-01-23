@@ -1,0 +1,33 @@
+// _highlight.scss
+
+@import "../variables";
+
+/* Basic Highlight */
+.highlight {
+    background-color: #fff59d;
+    padding: 0 0.2em;
+    border-radius: 2px;
+    display: inline;
+  }
+  
+  /* Hand-Drawn Highlight */
+  .highlight--hand-drawn {
+    position: relative;
+    background-color: transparent;
+    display: inline;
+    padding: 0 0.2em;
+  
+    &::before {
+      content: "";
+      position: absolute;
+      top: 30%;
+      left: 0;
+      right: 0;
+      height: 1.2em;
+      background: #fff59d;
+      border-radius: 10px;
+      z-index: -1;
+      transform: rotate(-1deg);
+      box-shadow: 0 0.2em 0 #fff59d;
+    }
+  }

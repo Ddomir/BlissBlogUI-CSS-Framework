@@ -1,0 +1,90 @@
+// _mixins.scss
+
+@mixin generate-spacing-utilities($property, $prefix, $scale) {
+  @each $val in $scale {
+    .#{$prefix}-#{$val} {
+      #{$property}: #{$val * 4}px;
+    }
+    .#{$prefix}t-#{$val} {
+      #{$property}-top: #{$val * 4}px;
+    }
+    .#{$prefix}r-#{$val} {
+      #{$property}-right: #{$val * 4}px;
+    }
+    .#{$prefix}b-#{$val} {
+      #{$property}-bottom: #{$val * 4}px;
+    }
+    .#{$prefix}l-#{$val} {
+      #{$property}-left: #{$val * 4}px;
+    }
+    .#{$prefix}x-#{$val} {
+      #{$property}-left: #{$val * 4}px;
+      #{$property}-right: #{$val * 4}px;
+    }
+    .#{$prefix}y-#{$val} {
+      #{$property}-top: #{$val * 4}px;
+      #{$property}-bottom: #{$val * 4}px;
+    }
+  }
+}
+
+// A color utility generator for text, backgrounds, and borders.
+// $colors is a SCSS map of 'name': colorValue (e.g. 'red-500': #EF4444).
+@mixin generate-color-classes($colors) {
+  @each $name, $value in $colors {
+    .text-#{$name} {
+      color: $value;
+    }
+    .bg-#{$name} {
+      background-color: $value;
+    }
+    .border-#{$name} {
+      border-color: $value;
+    }
+  }
+}
+
+// Generate width classes: .w-<key>
+@mixin generate-width-classes($width-map) {
+  @each $key, $val in $width-map {
+    .w-#{$key} {
+      width: $val;
+    }
+  }
+}
+
+// Generate height classes: .h-<key>
+@mixin generate-height-classes($height-map) {
+  @each $key, $val in $height-map {
+    .h-#{$key} {
+      height: $val;
+    }
+  }
+}
+
+// Generate grid columns: .grid-cols-1, .grid-cols-2, etc.
+@mixin generate-grid-columns($maxCols) {
+  @for $i from 1 through $maxCols {
+    .grid-cols-#{$i} {
+      grid-template-columns: repeat(#{$i}, minmax(0, 1fr));
+    }
+  }
+}
+
+// Generate grid rows: .grid-rows-1, .grid-rows-2, etc.
+@mixin generate-grid-rows($maxRows) {
+  @for $j from 1 through $maxRows {
+    .grid-rows-#{$j} {
+      grid-template-rows: repeat(#{$j}, minmax(0, 1fr));
+    }
+  }
+}
+
+// Generate gap classes: .gap-0, .gap-1, .gap-2, etc.
+@mixin generate-grid-gap($maxGap) {
+  @for $g from 0 through $maxGap {
+    .gap-#{$g} {
+      gap: #{$g * 4}px;
+    }
+  }
+}

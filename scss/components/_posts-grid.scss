@@ -1,0 +1,102 @@
+// _posts-grid.scss
+
+.posts-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin: 2rem 0;
+
+  // Column layout options (user adds these classes to the container)
+  &--1col {
+    grid-template-columns: 1fr;
+  }
+  &--2col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  &--3col {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  &--4col {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  &--5col {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  &--6col {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.post-card {
+  border: 1px solid #000000;
+  background-color: #fff;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  will-change: transform;
+
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  // Default corner rounding
+  border-radius: 8px;
+
+  // Shape modifiers
+  &--rounded {
+    border-radius: 8px;
+  }
+
+  &--square {
+    border-radius: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+
+    &:visited {
+      color: inherit;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  // Card image (optional)
+  &__image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+  }
+
+  // Card content
+  &__content {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1f2937;
+  }
+
+  &__date {
+    margin: 0;
+    font-size: 0.875rem;
+    color: #6b7280;
+  }
+
+  &__summary {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.4;
+    color: #374151;
+  }
+}

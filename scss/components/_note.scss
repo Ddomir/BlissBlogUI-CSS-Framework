@@ -1,0 +1,23 @@
+// _note.scss
+
+@import "../variables";
+
+.note {
+    border: 1px solid #000000;
+    border-radius: 8px;
+    background-color: $note-color;
+    color: #374151;
+    width: 100%;
+    max-width: 800px;
+    margin: 1.5rem auto;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+    &:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+  }

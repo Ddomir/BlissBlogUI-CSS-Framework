@@ -1,0 +1,324 @@
+// _utilities.scss
+
+@import "mixins";
+@import "variables";
+
+body {
+  background-color: $background-color;
+}
+
+$spacing-scale: (0, 1, 2, 3, 4, 6, 8, 10, 12, 16, 20, 24, 30, 36, 42, 48, 56, 64, 96, 128);
+
+// Generate margin/padding
+@include generate-spacing-utilities(margin, "m", $spacing-scale);
+@include generate-spacing-utilities(padding, "p", $spacing-scale);
+
+//-------------------------------------------------------
+// COLOR MAP
+//-------------------------------------------------------
+$color-map: (
+  // Neutrals
+  "white": #ffffff,
+  "off-white": #fafafa,
+  "light-gray": #dfdddd,
+  "ash-gray": #cfcfcf,
+  "silver-gray": #bebebe,
+  "middle-gray": #8b8681,
+  "gray": #807c78,
+  "dark-silver": #75726f,
+  "dim-gray": #6b6967,
+  "granite": #605f5e,
+  "abbey": #4e5155,
+  "charcoal": #333333,
+  "dark-gray": #555555,
+  "black": #000000,
+  "pearl": #f5f5f5,
+  "cream": #fffdd0
+);
+
+// Generate text/bg/border utility classes for each color name
+@include generate-color-classes($color-map);
+
+//-------------------------------------------------------
+// WIDTH / HEIGHT
+//-------------------------------------------------------
+$width-map: (
+  "0": 0,
+  "px": 1px,
+  "1": 4px,
+  "2": 8px,
+  "3": 12px,
+  "4": 16px,
+  "fifth": 20%,
+  "fourth": 25%,
+  "third": 33.3%,
+  "half": 50%,
+  "full": 100%,
+  "screen": 100vw
+);
+$height-map: (
+  "0": 0,
+  "px": 1px,
+  "1": 4px,
+  "2": 8px,
+  "3": 12px,
+  "4": 16px,
+  "fifth": 20%,
+  "fourth": 25%,
+  "third": 33.3%,
+  "half": 50%,
+  "full": 100%,
+  "screen": 100vh
+);
+
+@include generate-width-classes($width-map);
+@include generate-height-classes($height-map);
+
+//-------------------------------------------------------
+// GRID
+//-------------------------------------------------------
+// Basic .grid class
+.grid {
+  display: grid;
+}
+
+// Generate .grid-cols-1 to .grid-cols-12, and .grid-rows-1..12
+@include generate-grid-columns(12);
+@include generate-grid-rows(12);
+
+// Gap classes: .gap-0 to .gap-8, for example
+@include generate-grid-gap(8);
+
+//-------------------------------------------------------
+// TEXT UTILITIES
+//-------------------------------------------------------
+
+// Display
+.d-block {
+  display: block;
+}
+.d-inline {
+  display: inline;
+}
+.d-inline-block {
+  display: inline-block;
+}
+.d-flex {
+  display: flex;
+}
+.d-inline-flex {
+  display: inline-flex;
+}
+.hidden {
+  display: none;
+}
+
+// Flex direction / wrap / alignment
+.flex-row {
+  flex-direction: row;
+}
+.flex-col {
+  flex-direction: column;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-end {
+  justify-content: flex-end;
+}
+.justify-between {
+  justify-content: space-between;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+.items-center {
+  align-items: center;
+}
+.items-end {
+  align-items: flex-end;
+}
+
+// Text alignment
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+.text-justify {
+  text-align: justify;
+}
+
+// Font weight
+.font-thin {
+  font-weight: 100;
+}
+.font-extralight {
+  font-weight: 200;
+}
+.font-light {
+  font-weight: 300;
+}
+.font-normal {
+  font-weight: 400;
+}
+.font-medium {
+  font-weight: 500;
+}
+.font-semibold {
+  font-weight: 600;
+}
+.font-bold {
+  font-weight: 700;
+}
+.font-extrabold {
+  font-weight: 800;
+}
+.font-black {
+  font-weight: 900;
+}
+
+// Text size
+// Text Size Utilities
+.text-xs {
+  font-size: 0.75rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.text-base {
+  font-size: 1rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+}
+
+.text-5xl {
+  font-size: 3rem;
+}
+
+.text-6xl {
+  font-size: 4rem;
+}
+
+// Text transform
+.uppercase {
+  text-transform: uppercase;
+}
+.lowercase {
+  text-transform: lowercase;
+}
+.capitalize {
+  text-transform: capitalize;
+}
+.normal-case {
+  text-transform: none;
+}
+
+// Italic
+.italic {
+  font-style: italic;
+}
+.not-italic {
+  font-style: normal;
+}
+
+//-------------------------------------------------------
+// IMAGE MODIFIERS
+//-------------------------------------------------------
+
+.image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+}
+
+/* Alignment options */
+.image--left {
+  float: left;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+
+.image-center {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.image-right {
+  float: right;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Borders */
+.image-border {
+  border: 1px solid #000000;
+}
+
+/* Corner styles */
+.image-rounded {
+  border-radius: 8px;
+}
+
+.image-square {
+  border-radius: 0;
+}
+
+/* Sizes */
+.image-sm {
+  width: 200px;
+}
+
+.image-md {
+  width: 400px;
+}
+
+.image-lg {
+  width: 600px;
+}
+
+/* Caption styling */
+.image-caption {
+  font-size: 1rem;
+  color: #6b7280;
+  padding-top: 2px;
+  text-align: center;
+}
